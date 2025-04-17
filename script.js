@@ -1,31 +1,29 @@
-const url="data.json";
+const url="https://openlibrary.org/search.json?title=the+lord+of+the+rings&limit=50";
+const searchbutton = document.querySelector("#search-button");
 const main = document.querySelector("main");
-const authorKey= document.querySelector("#authorKey");
-const authorName= document.querySelector("#authorName");
-const editionCount= document.querySelector("#editionCount");
-const firstEdition= document.querySelector("#firstEdition");
+const btnauthorKey= document.querySelector("#btnauthorKey");
+const btnauthorName= document.querySelector("#btnauthorName");
+const btneditionCount= document.querySelector("#btneditionCount");
+const btnfirstEdition= document.querySelector("#btnfirstEdition");
 const inputbookRange = document.querySelector("#inputbookRange");
 const displaybookRange = document.querySelector("#displaybookRange");
 const inputbookName = document.querySelector("#inputbookName");
 var docs = [];
-var sortMethod = "";
-var numberOfbook = 12;
-var filter = "";
-
-const fetchbook = async () => {
+// var sortMethod = "";
+// var numberOfbook = 12;
+// var filter = "";
+async function fetchBooks(){
     const request = await fetch(url);
-    book = await request.json();
-    updateMain();
-  };
-  
-  const updateMain = () => {
-    main.innerHTML = "";
-    book
-
-    filter((book) => {
-      if (filter === "") return true;
-      return book.title.toLowerCase().includes(filter.toLowerCase());
-      return book;
-    }
-
+    const response = await request.json();
+    docs = response.docs;
+    
 }
+
+fetchBooks();
+    
+
+
+
+
+
+        
