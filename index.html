@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Open Library</h1>
+      <div>
+        <input type="text" id="search" placeholder="Titre du livre..." />
+        <button id="search-button">Search</button>
+      </div>
+      <div>
+        <button id="authorKey">Code</button>
+        <button id="authorName">Auteur</button>
+        <button id="editionCount">Combien d'Edition</button>
+        <button id="firstPublishYear">Première Edition</button>
+      </div>
+      <div class="rangeContainer">
+        <label for="inputBookRange">Nombre de livres à afficher :</label>
+        <input
+          type="range"
+          name="inputBookRange"
+          id="inputBookRange"
+          min="0"
+          max="50"
+          step="1"
+          value="12"
+        />
+        <span id="displayBookRange">12</span>
+      </div>
+    </header>
+    <main>
+      <div class="card">
+        <img src="https://covers.openlibrary.org/a/olid/OL23919A-M.jpg" alt="image du livre ${docs.title}" />
+        <h3>${docs.title}</h3>
+        <p>Code : ${docs.author_key}</p>
+        <p>Nom de l'auteur : ${docs.author_name}</p>
+        <p>Nombre d'édition : ${docs.edition_count}</p>
+        <p>Année d'édition : ${docs.first_publish_year}</p>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
